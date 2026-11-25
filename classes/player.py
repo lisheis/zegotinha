@@ -50,7 +50,7 @@ class Player(GameObject):
         if self.vy < 0:
             for pl in platforms:
                 overlaps_x = self.x + 8 < pl.x + pl.width and self.x + self.width - 8 > pl.x
-                if overlaps_x and prev_top >= pl.y + pl.height and self.y < pl.y + pl.height:
+                if overlaps_x and prev_top >= pl.y + pl.height - 6 and self.y < pl.y + pl.height:
                     self.y = pl.y + pl.height
                     self.vy = 0
                     bumped = pl
@@ -59,8 +59,8 @@ class Player(GameObject):
 
         support = GROUND_Y
         for ob in obstacles + platforms:
-            overlaps_x = self.x + self.width > ob.x and self.x < ob.x + ob.width
-            if overlaps_x and self.vy >= 0 and prev_bottom <= ob.y + 1 and bottom >= ob.y:
+            overlaps_x = self.x + self.width > ob.x + 4 and self.x < ob.x + ob.width - 4
+            if overlaps_x and self.vy >= 0 and prev_bottom <= ob.y + 8 and bottom >= ob.y:
                 support = min(support, ob.y)
 
         if bottom >= support:
@@ -71,8 +71,16 @@ class Player(GameObject):
             self.on_ground = False
 
         player_rect = pygame.Rect(self.get_rect())
+        for pl in platforms:
+            pl_rect = pygame.Rect(pl.get_rect())
+            if player_rect.colliderect(pl_rect):
+                if player_rect.bottom > pl_rect.top + 8 and player_rect.top < pl_rect.bottom - 8:
+                    if self.vy < 0:
+                        self.vy = 0
+
         for ob in obstacles[:]:
-            if player_rect.colliderect(pygame.Rect(ob.get_rect())):
+            ob_rect = pygame.Rect(ob.get_rect())
+            if player_rect.colliderect(ob_rect) and player_rect.bottom > ob_rect.top + 8:
                 self.take_hit()
                 obstacles.remove(ob)
 
