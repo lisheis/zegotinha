@@ -1,8 +1,26 @@
 # Zé Gotinha - A Caminho da UPA
 
-Jogo de plataforma (runner) feito em Python com `pygame-ce`. O Zé Gotinha corre sozinho pelo bairro,
-pula em cima das fileiras de blocos enquanto os vírus passam por baixo, coleta vacinas e joga vacina nos
-vírus. Quem chegar à UPA com mais vacinas entra no pódio.
+- contextualização
+    O movimento antivacina esteve na lista das dez ameaças globais à saúde, publicada pela Organização Mundial da Saúde (OMS) em 2019. Sendo assim uma ameaça social presente nos dias atuais, visto o crescimento de casos de doenças que antes estavam sob o controle global e, com isso, estão voltando a representar uma ameaça.
+
+    No Brasil, a figura do Zé Gotinha, desde a sua criação na década de 80, teve um papel-chave na convocação da população brasileira para o compromisso com a vacinação. Contribuindo assim para o aumento das coberturas vacinais, que atingiram seu ápice entre os anos de 2000 e 2015.
+
+    Contudo, a partir de 2016, inicia-se um processo de queda acentuada da cobertura, especialmente na imunização infantil: a taxa de cobertura da tríplice viral, por exemplo, que alcançava 96% das crianças em 2015, baixou para 84% em 2017, abrindo assim uma brecha para novas janelas infecciosas no país. 
+
+    Nesse cenário, o jogo “Zé Gotinha - A Caminho da UPA” surge como uma forma lúdica de aproximar o usuário da temática da vacinação. 
+
+- descrição
+    Consiste em um jogo de plataforma (runner) feito em Python com `pygame-ce`. Dividido em 3 níveis, nos quais o usuário tem como missão fazer o Zé Gotinha chegar com vida até a UPA e coletar o máximo de vacinas possível.
+
+    Em cada nível o Zé gotinha possuí 5 vidas que são subtraídas à medida que o player colida com um bloco do cenário ou seja atingido por um vírus. Logo para chegar à UPA e passar de nível é necessário pular dos blocos que aparecem no meio do caminho, pular em cima das fileiras de blocos enquanto os vírus passam por baixo, coletar as vacinas que aparecem no caminho e jogar as vacinas para matar os vírus.
+
+    No primeiro nível apenas o Coronavírus aparece como enemy, para matá-lo é necessário lançar uma vacina.
+
+    No segundo nível aparece o Cononavírus e o Zika Vírus, para matá-lo é necessário lançar 2 vacinas.
+
+    No terceiro nível aparece o Coronavírus, o Zika Vírus  e o Mosquito da dengue, para matá-lo é necessário lançar uma vacina.
+
+    Independente do nível, caso as vidas do Zé gotinha sejam zeradas, o jogo volta para o nível 1. E, no final, é estabelecido um Ranking para mostrar quais usuários coletaram mais vacinas.
 
 **Controles:** `ESPAÇO` pula, `X` joga vacina. Na tela inicial, digite seu nome e clique em **JOGAR**.
 
